@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import "./index.css";
 
 function App() {
   const api_key = "pU4NsG6fIg98UQCpGicxpavg8Ar1nBG7dQ2lZNdh";
@@ -33,19 +34,23 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <h1>Cosmos Society</h1>
+      <div className="header">
+        <h1>South Coast Cosmos Society</h1>
         <p>Select a date below to view NASA's Astronomy Photo of the Day:</p>
         <form className="date-form">
-          <input type="date" value={date} onChange={updateDate} />
-          <p>Selected Date: {date}</p>
+          <input className="date-input" type="date" value={date} onChange={updateDate} />
         </form>
         {isLoading && <div className="loading">⌛️ Loading...</div>}
       </div>
       <h2>{spaceData.title}</h2>
-
-      <img src={spaceData.url} alt={spaceData.title} />
-      <p>{spaceData.explanation}</p>
+      <div className="content-box"></div>
+      {spaceData.media_type === "image" && 
+        <img className="content-img" src={spaceData.url} alt={spaceData.title} />
+      }
+      {spaceData.media_type === "video" && 
+        <iframe className="content-vid" src={spaceData.url} alt={spaceData.title} />
+      }
+      <p className="content-description">{spaceData.explanation}</p>
     </div>
   );
 }
