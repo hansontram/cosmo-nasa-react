@@ -1,17 +1,21 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import "./index.css";
+import SpaceContent from "./SpaceContent";
 
 function App() {
   const api_key = "pU4NsG6fIg98UQCpGicxpavg8Ar1nBG7dQ2lZNdh";
 
-  const [spaceData, setSpaceData] = useState([]);
-  const [date, setDate] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [spaceData, setSpaceData] = useState({});
+  const [date, setDate] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getSpaceData();
-    setIsLoading(true);
+    if (date) {
+      getSpaceData();
+      setIsLoading(true);
+    }
+    console.log("useeffect hit");
   }, [date]);
 
   const getSpaceData = async () => {
@@ -38,19 +42,16 @@ function App() {
         <h1>South Coast Cosmos Society</h1>
         <p>Select a date below to view NASA's Astronomy Photo of the Day:</p>
         <form className="date-form">
-          <input className="date-input" type="date" value={date} onChange={updateDate} />
+          <input
+            className="date-input"
+            type="date"
+            value={date}
+            onChange={updateDate}
+          />
         </form>
         {isLoading && <div className="loading">⌛️ Loading...</div>}
       </div>
-      <h2>{spaceData.title}</h2>
-      <div className="content-box"></div>
-      {spaceData.media_type === "image" && 
-        <img className="content-img" src={spaceData.url} alt={spaceData.title} />
-      }
-      {spaceData.media_type === "video" && 
-        <iframe className="content-vid" src={spaceData.url} alt={spaceData.title} />
-      }
-      <p className="content-description">{spaceData.explanation}</p>
+      {!isLoading && <SpaceContent data={spaceData}/>}
     </div>
   );
 }
