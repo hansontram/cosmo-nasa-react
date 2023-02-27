@@ -4,7 +4,7 @@ This web app is for South Coast's space club and it allows users to select a cer
 ![scss](https://user-images.githubusercontent.com/97640502/190934016-e0d37784-a64e-42d2-85f2-25c140a3665f.jpg)
 
 
-**Link to project:** (https://southcoastcosmo.netlify.app/)
+**Link to project:** (https://southcoastspace.netlify.app/)
 
 ## How It's Made:
 
