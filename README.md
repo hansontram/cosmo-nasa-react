@@ -1,7 +1,7 @@
 # South Coast Cosmo Society's: NASA's Astronomy Picture of the Day
 This web app is for South Coast's space club and it allows users to select a certain date to display a picture or video loaded from NASA's very own API.
 
-![scss](https://user-images.githubusercontent.com/97640502/190934016-e0d37784-a64e-42d2-85f2-25c140a3665f.jpg)
+![c171af95-f3cf-4bde-b086-484f232e0525](https://user-images.githubusercontent.com/97640502/221449028-356c85c8-2d94-43d5-b5fa-47a373dbdbda.gif)
 
 
 **Link to project:** (https://southcoastspace.netlify.app/)
